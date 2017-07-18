@@ -1,15 +1,18 @@
-<!doctype html>
+<!DOCTYPE html>
 
 
 
   
 
 
-<html class="theme-next mist use-motion" lang="zh-CN">
+<html class="theme-next mist use-motion" lang="default">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
 
 
 
@@ -74,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="     " />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -90,12 +93,15 @@
 
 
 
+<meta name="description" content="我从来不缺少从头再来的勇气">
 <meta property="og:type" content="website">
-<meta property="og:title" content="ƽ������">
-<meta property="og:url" content="https://naughtysuperman.github.io/index.html">
-<meta property="og:site_name" content="ƽ������">
+<meta property="og:title" content="平凡罪过">
+<meta property="og:url" content="http://jiayongchao.com/index.html">
+<meta property="og:site_name" content="平凡罪过">
+<meta property="og:description" content="我从来不缺少从头再来的勇气">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ƽ������">
+<meta name="twitter:title" content="平凡罪过">
+<meta name="twitter:description" content="我从来不缺少从头再来的勇气">
 
 
 
@@ -104,12 +110,12 @@
   var CONFIG = {
     root: '/',
     scheme: 'Mist',
-    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    sidebar: {"position":"left","display":"remove","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
     motion: true,
     duoshuo: {
       userId: '0',
-      author: 'Author'
+      author: '博主'
     },
     algolia: {
       applicationID: '',
@@ -123,17 +129,13 @@
 
 
 
-  <link rel="canonical" href="https://naughtysuperman.github.io/"/>
+  <link rel="canonical" href="http://jiayongchao.com/"/>
 
 
 
 
 
-  <title>ƽ������</title>
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
-
+  <title>平凡罪过</title>
   
 
 
@@ -148,6 +150,10 @@
 
 
 
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
 
   
   
@@ -167,7 +173,7 @@
     <div class="custom-logo-site-title">
       <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">ƽ������</span>
+        <span class="site-title">平凡罪过</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -197,37 +203,17 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            Archiv
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
-            Kategorien
+            首页
           </a>
         </li>
       
         
         <li class="menu-item menu-item-about">
-          <a href="/about" rel="section">
+          <a href="/about/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
-            Über
+            关于我
           </a>
         </li>
       
@@ -260,7 +246,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://naughtysuperman.github.io/2017/04/11/stormzhang的中文排版指南/">
+    <link itemprop="mainEntityOfPage" href="http://jiayongchao.com/2017/04/11/stormzhang的中文排版指南/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -269,7 +255,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ƽ������">
+      <meta itemprop="name" content="平凡罪过">
     </span>
 
     
@@ -289,9 +275,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-11T19:34:15+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-11T19:34:15+08:00">
                 2017-04-11
               </time>
             
@@ -329,14 +315,12 @@
         
           
            每个人都需要的中文排版指南
-版权声明：本文为 stormzhang 原创文章，可以随意转载，但必须在明确位置注明出处！！！
-之前有不少人在我公众号留言，说看我的排版很舒服，求指导。
-我不是一个专业的写字人，我是程序员出身，在写代码的时候有点小洁癖，尽量会把每个细节做到更好，所以我在公众号写作的时候
+版权声明：本文为 stormzhang 原创文章，可以随意转载，但必须
           ...
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/04/11/stormzhang的中文排版指南/#more" rel="contents">
-              Weiterlesen &raquo;
+              阅读全文 &raquo;
             </a>
           </div>
           <!--/noindex-->
@@ -381,7 +365,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://naughtysuperman.github.io/2017/04/11/MarkDown使用/">
+    <link itemprop="mainEntityOfPage" href="http://jiayongchao.com/2017/04/11/MarkDown使用/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -390,7 +374,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ƽ������">
+      <meta itemprop="name" content="平凡罪过">
     </span>
 
     
@@ -410,9 +394,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-11T12:45:17+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-11T12:45:17+08:00">
                 2017-04-11
               </time>
             
@@ -451,21 +435,12 @@
           
           #献给写作者的 Markdown 新手指南
 
-『为什么作家应该用 Markdown 保存自己的文稿』。
-
-『Markdown写作浅谈』
-
-
-在此，我们总结 Markdown 的优点如下：
-
-纯文本，所以兼容性极强，可以用所有文本编辑器打开。
-让你专注于文字而不是排版。
-格式转换方便，Markdown
+『为什么作家应该用 Markdown 保存自己的文稿』
           ...
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/04/11/MarkDown使用/#more" rel="contents">
-              Weiterlesen &raquo;
+              阅读全文 &raquo;
             </a>
           </div>
           <!--/noindex-->
@@ -514,85 +489,6 @@
 
         </div>
         
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
-
-  <aside id="sidebar" class="sidebar">
-    <div class="sidebar-inner">
-
-      
-
-      
-
-      <section class="site-overview sidebar-panel sidebar-panel-active">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="/images/avatar.gif"
-               alt="" />
-          <p class="site-author-name" itemprop="name"></p>
-           
-              <p class="site-description motion-element" itemprop="description"></p>
-          
-        </div>
-        <nav class="site-state motion-element">
-
-          
-            <div class="site-state-item site-state-posts">
-              <a href="/archives">
-                <span class="site-state-item-count">2</span>
-                <span class="site-state-item-name">Artikel</span>
-              </a>
-            </div>
-          
-
-          
-
-          
-            
-            
-            <div class="site-state-item site-state-tags">
-              
-                <span class="site-state-item-count">2</span>
-                <span class="site-state-item-name">Tags</span>
-              
-            </div>
-          
-
-        </nav>
-
-        
-
-        <div class="links-of-author motion-element">
-          
-        </div>
-
-        
-        
-
-        
-        
-
-        
-
-
-      </section>
-
-      
-
-      
-
-    </div>
-  </aside>
-
-
-        
       </div>
     </main>
 
@@ -610,11 +506,11 @@
 
 
 <div class="powered-by">
-  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
 </div>
 
 <div class="theme-info">
-  Theme -
+  主题 -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
     NexT.Mist
   </a>
@@ -697,6 +593,10 @@
   
 
   
+    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+  
 
   
 
@@ -731,18 +631,14 @@
 
 
 
-  
-
-
-
-
-
 
   
 
 
 
 
+
+  
 
   
 
