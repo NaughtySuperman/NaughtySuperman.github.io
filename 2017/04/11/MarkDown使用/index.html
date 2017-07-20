@@ -124,7 +124,7 @@
   var CONFIG = {
     root: '/',
     scheme: 'Mist',
-    sidebar: {"position":"left","display":"remove","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false,"onmobile":false},
+    sidebar: {"position":"left","display":"hide","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
     motion: true,
     duoshuo: {
@@ -523,6 +523,111 @@
 
 
         </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="" />
+          <p class="site-author-name" itemprop="name"></p>
+           
+              <p class="site-description motion-element" itemprop="description">我从来不缺少从头再来的勇气</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一级标题"><span class="nav-number">1.</span> <span class="nav-text">一级标题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#二级标题"><span class="nav-number">1.1.</span> <span class="nav-text">二级标题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#三级标题"><span class="nav-number">1.1.1.</span> <span class="nav-text">三级标题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#四级标题"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">四级标题</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#五级标题"><span class="nav-number">1.1.1.1.1.</span> <span class="nav-text">五级标题</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#六级标题"><span class="nav-number">1.1.1.1.1.1.</span> <span class="nav-text">六级标题</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
         
       </div>
     </main>
