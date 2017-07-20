@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="第三方库," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="Matisse Android 图片选择器 详细使用方式 前言 我们在做App的时候很多需求都要选择图片比如说:  上传头像 上传朋友圈 发送图片 内容编辑插入图片  我们也可以使用系统的组件来完成我们的需求  Intent toGallery = new Intent(Intent.ACTION_GET_CONTENT); toGallery.setType(&amp;quot;image/*&amp;quot">
+<meta name="keywords" content="第三方库">
+<meta property="og:type" content="article">
+<meta property="og:title" content="图片选择库——Matisse">
+<meta property="og:url" content="http://jiayongchao.com/2017/07/20/图片选择库——Matisse/index.html">
+<meta property="og:site_name" content="平凡罪过">
+<meta property="og:description" content="Matisse Android 图片选择器 详细使用方式 前言 我们在做App的时候很多需求都要选择图片比如说:  上传头像 上传朋友圈 发送图片 内容编辑插入图片  我们也可以使用系统的组件来完成我们的需求  Intent toGallery = new Intent(Intent.ACTION_GET_CONTENT); toGallery.setType(&amp;quot;image/*&amp;quot">
+<meta property="og:image" content="https://pic1.zhimg.com/v2-cdc59810c7219e46e9be11f78b4ad5e8_r.jpg">
+<meta property="og:image" content="https://pic3.zhimg.com/v2-438a4732901138c33d071f80bc0225a2_r.jpg">
+<meta property="og:updated_time" content="2017-07-20T06:44:05.887Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="图片选择库——Matisse">
+<meta name="twitter:description" content="Matisse Android 图片选择器 详细使用方式 前言 我们在做App的时候很多需求都要选择图片比如说:  上传头像 上传朋友圈 发送图片 内容编辑插入图片  我们也可以使用系统的组件来完成我们的需求  Intent toGallery = new Intent(Intent.ACTION_GET_CONTENT); toGallery.setType(&amp;quot;image/*&amp;quot">
+<meta name="twitter:image" content="https://pic1.zhimg.com/v2-cdc59810c7219e46e9be11f78b4ad5e8_r.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"remove","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://jiayongchao.com/2017/07/20/图片选择库——Matisse/"/>
+
+
+
+
+
+  <title>图片选择库——Matisse | 平凡罪过</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">平凡罪过</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于我
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://jiayongchao.com/2017/07/20/图片选择库——Matisse/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="平凡罪过">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">图片选择库——Matisse</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-20T08:55:15+08:00">
+                2017-07-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Matisse-Android-图片选择器-详细使用方式"><a href="#Matisse-Android-图片选择器-详细使用方式" class="headerlink" title="Matisse Android 图片选择器 详细使用方式"></a>Matisse Android 图片选择器 详细使用方式</h1><p><img src="https://pic1.zhimg.com/v2-cdc59810c7219e46e9be11f78b4ad5e8_r.jpg" alt=""></p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
+<p>我们在做App的时候很多需求都要选择图片<br>比如说:</p>
+<ul>
+<li>上传头像</li>
+<li>上传朋友圈</li>
+<li>发送图片</li>
+<li>内容编辑插入图片</li>
+</ul>
+<p>我们也可以使用系统的组件来完成我们的需求</p>
+</blockquote>
+<pre><code>Intent toGallery = new Intent(Intent.ACTION_GET_CONTENT);
+toGallery.setType(&quot;image/*&quot;);
+toGallery.addCategory(Intent.CATEGORY_OPENABLE);
+startActivityForResult(toGallery, REQUEST_GALLERY);
+
+
+ @Override//返回选择照片的Uri
+protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    super.onActivityResult(requestCode, resultCode, data);
+    Uri uri = data.getData();
+}
+</code></pre><blockquote>
+<p>通过这种方式打开系统中支持文件选择的Activity，选取我们需要的照片，然而这种方式并不是特别美观，很多时候不能达到我们想要的效果，而且开源盛世的今天，有许多选择库提供我们选择，使用也非常简单！<br>今天给大家介绍知乎开源的选择图片的库——<em>Matisse</em></p>
+<h2 id="效果预览"><a href="#效果预览" class="headerlink" title="效果预览"></a>效果预览</h2></blockquote>
+<p><img src="https://pic3.zhimg.com/v2-438a4732901138c33d071f80bc0225a2_r.jpg" alt=""></p>
+<p>分别是 白天模式（蓝色主题）、夜间模式（暗色主题）、预览效果图</p>
+<h2 id="Github地址："><a href="#Github地址：" class="headerlink" title="Github地址："></a>Github地址：</h2><p><a href="https://github.com/zhihu/Matisse" target="_blank" rel="external">https://github.com/zhihu/Matisse</a></p>
+<h2 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h2><ul>
+<li>简单容易上手</li>
+<li>支持日夜间模式，可以自定义主题</li>
+<li>自定义选中图片的最大数</li>
+<li>JPEG, PNG, GIF 图片类型的显示</li>
+<li>支持有序选择图片，也即选择图片的时候会有 1, 2, 3, 4… 样式的 CheckBox；</li>
+<li>支持自定义筛选，完全自定义筛选规则</li>
+<li>可以定义图片缩略图的缩放比例。</li>
+<li>支持横竖屏。Matisse 做了状态保存的工作</li>
+<li>支持不同的图片加载库，目前支持 Glide 和 Picasso</li>
+</ul>
+<h2 id="如何使用"><a href="#如何使用" class="headerlink" title="如何使用"></a>如何使用</h2><h3 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h3><h4 id="添加依赖"><a href="#添加依赖" class="headerlink" title="添加依赖"></a>添加依赖</h4><p>Gradle:</p>
+<pre><code>repositories {
+    jcenter()
+}
+
+dependencies {
+    compile &apos;com.zhihu.android:matisse:0.5.0-alpha4&apos;
+    compile &apos;com.github.bumptech.glide:glide:3.7.0&apos;
+}
+</code></pre><p>也要添加上glide的包，图片加载器，用glide演示</p>
+<h3 id="第二步"><a href="#第二步" class="headerlink" title="第二步"></a>第二步</h3><p>Matiss须要添加两个权限，如果是6.0+的版本，须要申请运行时权限，否则报错</p>
+<pre><code>&lt;uses-permission android:name=&quot;android.permission.WRITE_EXTERNAL_STORAGE&quot;/&gt;
+&lt;uses-permission android:name=&quot;android.permission.READ_EXTERNAL_STORAGE&quot;/&gt;
+</code></pre><p>如果你使用 Glide 作为你的图片加载引擎，请添加 Glide 的 README 上所说的规则，以及添加额外的规则：</p>
+<pre><code>-dontwarn com.squareup.picasso.**
+</code></pre><p>如果你使用 Picasso 作为你的图片加载引擎，请添加 Picasso 的 README 上所说的规则，以及添加额外的规则：</p>
+<pre><code>-dontwarn com.bumptech.glide.**
+</code></pre><h3 id="第三步"><a href="#第三步" class="headerlink" title="第三步"></a>第三步</h3><p>如果你不需要点击拍照，而且也对过滤没有要求的话就可以直接使用了</p>
+<p>跳转到MatisseActivity从你当前的Activity或者Fragment</p>
+<h4 id="基本使用方式"><a href="#基本使用方式" class="headerlink" title="基本使用方式"></a>基本使用方式</h4><h5 id="1-定义常量"><a href="#1-定义常量" class="headerlink" title="1.定义常量"></a>1.定义常量</h5><pre><code>private static final int REQUEST_CODE_CHOOSE = 23;//定义请求码常量
+</code></pre><h5 id="2-启动MatisseActivity"><a href="#2-启动MatisseActivity" class="headerlink" title="2.启动MatisseActivity"></a>2.启动MatisseActivity</h5><pre><code>Matisse  
+.from(MainActivity.this)
+.theme(R.style.Matisse_Zhihu)//主题  暗色主题 R.style.Matisse_Dracula
+.choose(MimeType.allOf())//照片视频全部显示
+.countable(true)//有序选择图片
+.maxSelectable(9)//最大选择数量为9
+.gridExpectedSize(getResources()
+        .getDimensionPixelSize(R.dimen.grid_expected_size))//图片显示表格的大小
+.restrictOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)//图像选择和预览活动所需的方向。
+.thumbnailScale(0.85f)//缩放比例
+.imageEngine(new GlideEngine())//加载方式
+.forResult(REQUEST_CODE_CHOOSE);//请求码
+</code></pre><h5 id="3、接收选择的结果"><a href="#3、接收选择的结果" class="headerlink" title="3、接收选择的结果"></a>3、接收选择的结果</h5><pre><code>  List&lt;Uri&gt; mSelected;
+@Override      //接收返回的地址
+protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    super.onActivityResult(requestCode, resultCode, data);
+    if (requestCode == REQUEST_CODE_CHOOSE &amp;&amp; resultCode == RESULT_OK) {
+        mSelected = Matisse.obtainResult(data);
+        Log.d(&quot;Matisse&quot;, &quot;mSelected: &quot; + mSelected);
+    }
+}
+</code></pre><h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><h3 id="关于拍照"><a href="#关于拍照" class="headerlink" title="关于拍照"></a>关于拍照</h3><p>想要使用拍照功能的话，必须要有一个Fileprovider </p>
+<p>在Android Manifest当中的Application节点下添加FileProvider</p>
+<pre><code>&lt;provider
+    android:name=&quot;android.support.v4.content.FileProvider&quot;
+    android:authorities=&quot;com.example.fileprovider&quot; 
+    android:grantUriPermissions=&quot;true&quot;
+    android:exported=&quot;false&quot;&gt;
+    &lt;meta-data
+        android:name=&quot;android.support.FILE_PROVIDER_PATHS&quot;
+        android:resource=&quot;@xml/filepaths&quot; /&gt;
+&lt;/provider&gt;
+</code></pre><p>然后在Res文件下创建xml文件夹，然后创建filepaths.xml</p>
+<p><strong>authorites是你项目的包名 + fileprovider</strong></p>
+<p>filepaths的代码如下：</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;paths&gt;
+    &lt;external-path
+        name=&quot;my_images&quot;
+        path=&quot;Pictures&quot;/&gt;
+&lt;/paths&gt;
+</code></pre><p>如果对FileProvider不了解可以看一下这篇文章 <a href="http://blog.csdn.net/jxq1994/article/details/52737696" target="_blank" rel="external">FileProvider建立文件分享</a></p>
+<p><strong>这里的authority要和Manifest当中保持一致</strong></p>
+<p>在启动Matisse当中添加如下代码</p>
+<pre><code>.capture(true) //是否提供拍照功能
+.captureStrategy(new CaptureStrategy(true,String authority))//存储到哪里 
+</code></pre><h3 id="关于过滤器"><a href="#关于过滤器" class="headerlink" title="关于过滤器"></a>关于过滤器</h3><p>想要使用过滤器的话，必须要自定义过滤器，继承Filter。</p>
+<p>这里我已经定义好了，直接用就可以，要是有特别的需求自己实现，可以添加多个过滤器</p>
+<pre><code>class GifSizeFilter extends Filter {
+
+private int mMinWidth;
+private int mMinHeight;
+private int mMaxSize;
+
+GifSizeFilter(int minWidth, int minHeight, int maxSizeInBytes) {
+    mMinWidth = minWidth;
+    mMinHeight = minHeight;
+    mMaxSize = maxSizeInBytes;
+}
+
+@Override
+public Set&lt;MimeType&gt; constraintTypes() {
+    return new HashSet&lt;MimeType&gt;() {{
+            add(MimeType.GIF);
+            add(MimeType.MP4);
+        }};
+}
+
+@Override
+public IncapableCause filter(Context context, Item item) {
+    if (!needFiltering(context, item))
+        return null;
+
+    Point size = PhotoMetadataUtils.getBitmapBound(context.getContentResolver(), item.getContentUri());
+    if (size.x &lt; mMinWidth || size.y &lt; mMinHeight || item.size &gt; mMaxSize) {
+        return new IncapableCause(IncapableCause.DIALOG, context.getString(R.string.error_gif, mMinWidth,
+                String.valueOf(PhotoMetadataUtils.getSizeInMB(mMaxSize))));
+    }
+    return null;
+}
+
+}
+</code></pre><p>定义好之后在启动MatisseActivity的方法中添加如下代码</p>
+<pre><code>.addFilter(new GifSizeFilter(320, 320, 5 * Filter.K * Filter.K))
+</code></pre><h3 id="关于Api"><a href="#关于Api" class="headerlink" title="关于Api"></a>关于Api</h3><table>
+<thead>
+<tr>
+<th>方法名</th>
+<th style="text-align:left">描述</th>
+<th>参数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>showSingleMediaType()</td>
+<td style="text-align:left">仅仅显示一种媒体类型</td>
+<td>Boolean </td>
+</tr>
+<tr>
+<td>from()</td>
+<td style="text-align:left">传递当前的Activity或者fragment</td>
+<td>MainActivity.this</td>
+</tr>
+<tr>
+<td>choose()</td>
+<td style="text-align:left">显示图片的类型</td>
+<td>MimeType.of(MimeType.JPEG, MimeType.PNG, MimeType.GIF) 或者MimeType.ofAll()</td>
+</tr>
+<tr>
+<td>countable()</td>
+<td style="text-align:left">是否有序选择图片</td>
+<td>Boolean</td>
+</tr>
+<tr>
+<td>maxSelectable()</td>
+<td style="text-align:left">最大的选择数量</td>
+<td>int类型 多少都可以</td>
+</tr>
+<tr>
+<td>addFilter()</td>
+<td style="text-align:left">添加过滤器</td>
+<td>new GifSizeFilter(320, 320, 5 <em> Filter.K </em> Filter.K)，自己重写过滤器</td>
+</tr>
+<tr>
+<td>gridExpectedSize()</td>
+<td style="text-align:left">每个图片方格的大小</td>
+<td>120dp</td>
+</tr>
+<tr>
+<td>restrictOrientation()</td>
+<td style="text-align:left">设置图像选择和预览活动所需的方向</td>
+<td>ActivityInfo.SCREEN_ORIENTATION_PORTRAIT或者</td>
+</tr>
+<tr>
+<td>thumnailScale()</td>
+<td style="text-align:left">缩放比例</td>
+<td>0.1-1之间，一般0.85f</td>
+</tr>
+<tr>
+<td>imageEngine()</td>
+<td style="text-align:left">使用图片的加载方式</td>
+<td>new GlideEngine()或者new PicassoEngine()</td>
+</tr>
+<tr>
+<td>theme()</td>
+<td style="text-align:left">主题的设置</td>
+<td>R.style.Matisse_Zhihu 或者 R.style.Matisse_Dracula</td>
+</tr>
+<tr>
+<td>forResult()</td>
+<td style="text-align:left">请求码</td>
+<td>REQUEST_CODE_CHOOSE</td>
+</tr>
+</tbody>
+</table>
+<h4 id="包含的类"><a href="#包含的类" class="headerlink" title="包含的类"></a>包含的类</h4><table>
+<thead>
+<tr>
+<th>类名</th>
+<th style="text-align:left">描述           </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ImageEngine</td>
+<td style="text-align:left">图片加载接口，方便后面根据Glide和Picasso分别实现 </td>
+</tr>
+<tr>
+<td>GlideEngine</td>
+<td style="text-align:left">Glide实现ImageEngine     </td>
+</tr>
+<tr>
+<td>PicassoEngine</td>
+<td style="text-align:left">Picasso实现ImageEngine     </td>
+</tr>
+<tr>
+<td>Filter</td>
+<td style="text-align:left">过滤条件抽象类，我们可以通过集成Filter实现对应的过滤条件来对图片进行筛选，可以添加多个Filter</td>
+</tr>
+<tr>
+<td>Album</td>
+<td style="text-align:left">相册Entity   </td>
+</tr>
+<tr>
+<td>CaptureStrategy</td>
+<td style="text-align:left">拍照相关，媒体处理authority </td>
+</tr>
+<tr>
+<td>IncapableCause</td>
+<td style="text-align:left">信息处理，toast和dialog </td>
+</tr>
+<tr>
+<td>Item</td>
+<td style="text-align:left">选择媒体界面的Item    </td>
+</tr>
+<tr>
+<td>SelectionSpec</td>
+<td style="text-align:left">选择参数类     </td>
+</tr>
+<tr>
+<td>AlbumLoader</td>
+<td style="text-align:left">相册CursorLoader </td>
+</tr>
+<tr>
+<td>AlbumMediaLoader</td>
+<td style="text-align:left">图片和视频CursorLoader     </td>
+</tr>
+<tr>
+<td>AlbumMediaCollection</td>
+<td style="text-align:left">AlbumMediaLoader回调</td>
+</tr>
+<tr>
+<td>SelectedItemCollection</td>
+<td style="text-align:left">被选中项集合</td>
+</tr>
+<tr>
+<td>internal/ui包</td>
+<td style="text-align:left">界面显示的Adapter,自定义视图，Fragment和Activity</td>
+</tr>
+<tr>
+<td>internal/utils包</td>
+<td style="text-align:left">工具类</td>
+</tr>
+<tr>
+<td>MatisseActivity</td>
+<td style="text-align:left">关键类，执行选择媒体操作的时候展示出来的Activity</td>
+</tr>
+<tr>
+<td>Matisse</td>
+<td style="text-align:left">开源库的入口和出口，用来传递Activity和Fragment，创建SelectionSpecBuilder和返回结果</td>
+</tr>
+<tr>
+<td>MimeType</td>
+<td style="text-align:left">媒体类型</td>
+</tr>
+<tr>
+<td>SelectionSpecBuilder</td>
+<td style="text-align:left">Build构造类，用来传递参数</td>
+</tr>
+</tbody>
+</table>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/第三方库/" rel="tag"># 第三方库</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/04/11/stormzhang的中文排版指南/" rel="next" title="stormzhang的中文排版指南">
+                <i class="fa fa-chevron-left"></i> stormzhang的中文排版指南
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        ﻿<div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder"></span>
+</div>
+
+
+<div class="powered-by">
+   <a class="theme-link" href="https://github.com/NaughtySuperman">Github</a> 
+</div>
+
+<div class="theme-info">
+  JYC -
+  <a class="theme-link" href="https://github.com/NaughtySuperman">
+    从来都不缺少 从头再来的勇气
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
