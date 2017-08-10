@@ -102,7 +102,7 @@
 <meta property="og:description" content="前言 我们在做App的时候很多需求都要选择图片比如说:  上传头像 上传朋友圈 发送图片 内容编辑插入图片  我们也可以使用系统的组件来完成我们的需求  Intent toGallery = new Intent(Intent.ACTION_GET_CONTENT); toGallery.setType(&amp;quot;image/*&amp;quot;); toGallery.addCategory(In">
 <meta property="og:image" content="https://pic1.zhimg.com/v2-cdc59810c7219e46e9be11f78b4ad5e8_r.jpg">
 <meta property="og:image" content="https://pic3.zhimg.com/v2-438a4732901138c33d071f80bc0225a2_r.jpg">
-<meta property="og:updated_time" content="2017-07-21T13:08:29.701Z">
+<meta property="og:updated_time" content="2017-07-27T11:05:25.957Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Matisse Android 图片选择器 详细使用方式">
 <meta name="twitter:description" content="前言 我们在做App的时候很多需求都要选择图片比如说:  上传头像 上传朋友圈 发送图片 内容编辑插入图片  我们也可以使用系统的组件来完成我们的需求  Intent toGallery = new Intent(Intent.ACTION_GET_CONTENT); toGallery.setType(&amp;quot;image/*&amp;quot;); toGallery.addCategory(In">
@@ -372,13 +372,13 @@ dependencies {
 </code></pre><h3 id="第三步"><a href="#第三步" class="headerlink" title="第三步"></a>第三步</h3><p>如果你不需要点击拍照，而且也对过滤没有要求的话就可以直接使用了</p>
 <p>跳转到MatisseActivity从你当前的Activity或者Fragment</p>
 <h4 id="基本使用方式"><a href="#基本使用方式" class="headerlink" title="基本使用方式"></a>基本使用方式</h4><h5 id="1-定义常量"><a href="#1-定义常量" class="headerlink" title="1.定义常量"></a>1.定义常量</h5><pre><code>private static final int REQUEST_CODE_CHOOSE = 23;//定义请求码常量
-</code></pre><h5 id="2-启动MatisseActivity"><a href="#2-启动MatisseActivity" class="headerlink" title="2.启动MatisseActivity"></a>2.启动MatisseActivity</h5><pre><code>Matisse  
+</code></pre><h5 id="2-启动MatisseActivity"><a href="#2-启动MatisseActivity" class="headerlink" title="2.启动MatisseActivity"></a>2.启动MatisseActivity</h5><pre><code>//在value下创建dimens 定义属性grid_expected_size值为120
+Matisse  
 .from(MainActivity.this)
 .choose(MimeType.allOf())//照片视频全部显示
 .countable(true)//有序选择图片
 .maxSelectable(9)//最大选择数量为9
-.gridExpectedSize(120)//图片显示表格的大小getResources()
-        .getDimensionPixelSize(R.dimen.grid_expected_size)
+.gridExpectedSize(getResources().getDimensionPixelSize(R.dimen.grid_expected_size))
 .restrictOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)//图像选择和预览活动所需的方向。
 .thumbnailScale(0.85f)//缩放比例
 .theme(R.style.Matisse_Zhihu)//主题  暗色主题 R.style.Matisse_Dracula
